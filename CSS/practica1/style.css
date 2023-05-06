@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo&family=Montserrat+Alternates&display=swap');
+
+/* llamando al selector id */
+#contenedor{
+    font-family: 'Heebo', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif; /* tipo de fuente*/
+
+    font-size: 1.8rem; /* tamaño fuente */
+    border: 2px dotted black;
+    text-align: center;
+    padding: 15px; /* espacio del contenido y su cajita */
+}
+
