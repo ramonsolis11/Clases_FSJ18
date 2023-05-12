@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+
+nav{
+    width: 100%;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.794);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav a{
+    padding: 0 20px;
+    color: #222
+}
+
