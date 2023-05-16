@@ -2,24 +2,71 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MonBurger - Las mejores hamburguesas de la ciudad</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Restaurante MonBurger</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital@0;1&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav>
-        <a href="#">Home</a>
+    <nav class="menu">
+        <a href="#">Inicio</a>
         <a href="#">Nosotros</a>
         <a href="#">Menu</a>
-        <a href="#">Conctacto</a>
+        <a href="#">Delivery</a>
+        <a href="#">Contactenos</a>
     </nav>
 
     <header class="header">
         <div class="header_content">
-            <h1 class="texto-principal"> MonBurger</h1>
-            <h2 class="texto-secundario"> Experiencia en la mejor Burger</h2>
+            <h1 class="texto-principal">MonBurger</h1>
+            <h2 class="texto-secundario">¡Las mejores hamburguesas de la ciudad!</h2>
         </div>
     </header>
+    <section id="carrusel" class="contenedor_1">
+        <div class="content-all">
+            <div class="content-carrousel">
+
+                <figure><img src="./assets/img/image1.jpg" ></figure>
+                <figure><img src="./assets/img/image2.jpg" ></figure>
+                <figure><img src="./assets/img/image3.jpg" ></figure>
+                <figure><img src="./assets/img/product1.jpg" ></figure>
+                <figure><img src="./assets/img/product2.jpg" ></figure>
+                <figure><img src="./assets/img/product3.jpg" ></figure>
+                <figure><img src="./assets/img/product4.jpg" ></figure>
+                <figure><img src="./assets/img/product5.jpg" ></figure>
+                <figure><img src="./assets/img/product6.jpg" ></figure>
+
+            </div>
+        </div>
+    </section>
+    
+    <main>
+        <section id="nosotros" class="box-center">
+            <h3>Nosotros</h3>
+            <div class="about_container">
+                <article class="content">
+                    <h1>Somos un restaurante especializado en hamburguesas de alta calidad.</h1>
+
+                    <p class="texto-parrafo">Nuestro equipo de chefs y personal de servicio se dedica a brindarle la mejor experiencia culinaria con nuestras deliciosas hamburguesas.</p>
+
+                    <h1> <span id="texto-span">¡Ven y descubre el sabor único de nuestras creaciones!</span></h1>
+                </article>
+
+                <article class="content_imgage">
+                    <img src="./assets/img/image2.jpg" alt="Hamburguesa">
+                </article>
+            </div>
+        </section>
+
+        <section id="menu" class="ofertas">
+            <h1 class="texto-principal">Menú</h1>
+            <h2 class="texto-secundario">Explora nuestras deliciosas opciones</h2>
+            <button class="btn btn-oferta">Ordenar Ahora</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Restaurante MonBurger. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
