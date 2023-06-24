@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>Evento Onclick</h2>
+    <label for="">Ingresa tu nombre completo</label>
+    <input type="text" class="nombre" name="nombre" id="nombre">
+    <br>
+    <button onclick="obtenerNombre()">Obtener Nombre</button>
+</body>
+<script>
+
+    function obtenerNombre(){
+        //capturando la entrada de datos
+        let nombre = document.getElementById('nombre');
+        console.log(nombre); // retorna el elemento html deseado(<input>)
+        console.log(nombre.value); // retorna el valor o texto del elemento
+        alert(`Hola! ${nombre.value}, le has dado click`);
+    }
+</script>
+</html>

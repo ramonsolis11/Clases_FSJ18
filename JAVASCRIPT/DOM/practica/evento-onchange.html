@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>Evento Onchange</h2>
+    <label for="">Selecciona un curso</label>
+    <select class="cursos" onchange="seleccionarCurso()">
+        <option value="React JS"> React JS</option>
+        <option value="Git & GitHub"> Git & GitHub</option>
+        <option value="JavaScript"> JavaScript</option>
+        <option value="HTML & CSS"> HTML & CSS</option>
+    </select>
+    <!-- devolviendo el resultado del evento en un parrafo -->
+    <p></p>
+    <h3>Estamos en Eventos</h3>
+</body>
+<script>
+
+    function obtenerNombre(){
+        //capturando la entrada de datos
+        let nombre = document.getElementById('nombre');
+        console.log(nombre); // retorna el elemento html deseado(<input>)
+        console.log(nombre.value); // retorna el valor o texto del elemento
+        alert(`Hola! ${nombre.value}, le has dado click`);
+    }
+
+    function seleccionarCurso(){
+        //capturando la entrada
+        /**
+         * clase => .nombre
+         * id => #nombre
+         * etiqueta => nombre de la etiqueta
+         * atributo => a[href="#"]
+        */
+        let curso = document.querySelector(".cursos");
+        //  donde vamos a devolver el resultado
+        let resultado = document.querySelector('p');
+        console.log(curso.value);
+        /**
+         * innerHTML = Devuelve el resultado en el HTML
+         * textContent = devolvemos contenido al HTML y podemos capturar texto de una etiqueta
+        */
+
+        // resultado.innerHTML = "Elegiste el curso " + curso.value;
+        resultado.textContent = "Elegiste el curso " + curso.value;
+
+        //capturando el valor de h3
+        let subTitulo = document.querySelector('h3').textContent;
+        console.log(subTitulo);
+
+
+
+    }
+</script>
+</html>
