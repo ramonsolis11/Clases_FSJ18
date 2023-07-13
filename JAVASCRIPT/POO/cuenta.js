@@ -20,7 +20,7 @@ class Cuenta {
         this.numero_cuenta = numeroCuenta;
         }
     
-        // Setter y Getter para el atributo saldo
+        // Set y Get para el atributo saldo
         set capturarSaldo(cantidad) {
             this.#saldo = cantidad;
         }
