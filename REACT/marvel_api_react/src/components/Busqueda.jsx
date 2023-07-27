@@ -11,7 +11,7 @@ export default function Busqueda() {
 
     //metodo para obtener la informacion del personaje
     const getPersonajeByNombre = () => {
-        axios.get(`http://gateway.marvel.com/v1/public/characters?name=${nombre}&ts=1&apikey=66b249c1229a34e1b8c6d469fb703695&hash=a0f494f57891f51f375ebc9ef9c746eb`).then((response) => {
+        axios.get(`https://gateway.marvel.com/v1/public/characters?name=${nombre}&ts=1&apikey=c1900eb52930ed1b7ce840e189c99d54&hash=5781e9271c1ff2dab15c638283e5727f`).then((response) => {
             //actualizamos el arreglo con la informacion del personaje que ingreso el usuario
             setPersonajes(response.data.data.results);
         }).catch((error) => {
@@ -83,7 +83,6 @@ export default function Busqueda() {
         </div>
     )
 }
-
 
 
 

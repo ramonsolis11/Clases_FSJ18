@@ -19,7 +19,7 @@ export default function Eventos() {
          * 
          * try - catch (fetch) 404 => no encuentra coincidencia
          */
-        axios.get("http://gateway.marvel.com/v1/public/comics?ts=1&apikey=66b249c1229a34e1b8c6d469fb703695&hash=a0f494f57891f51f375ebc9ef9c746eb").then((response) => {
+        axios.get("https://gateway.marvel.com/v1/public/events?ts=1&apikey=c1900eb52930ed1b7ce840e189c99d54&hash=5781e9271c1ff2dab15c638283e5727f").then((response) => {
             console.log(response.data.data.results); //[20 eventos]
             //actualizamos el estado con los eventos de la api
             setEventos(response.data.data.results);
