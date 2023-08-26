@@ -1,63 +1,108 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
 
 export default function Comics() {
     const [comics, setComics] = useState([]);
+    const [selectedComic, setSelectedComic] = useState(null);
 
     useEffect(() => {
-        getComicsData();
-    }, []);
+        const apiUrl = `https://gateway.marvel.com/v1/public/comics?ts=1&apikey=c1900eb52930ed1b7ce840e189c99d54&hash=5781e9271c1ff2dab15c638283e5727f`;
 
-    const getComicsData = () => {
-        axios
-        .get(
-            `https://gateway.marvel.com/v1/public/comics?ts=1&apikey=c1900eb52930ed1b7ce840e189c99d54&hash=5781e9271c1ff2dab15c638283e5727f`
-        )
-        .then((response) => {
-            setComics(response.data.data.results);
-        })
-        .catch((error) => {
-            console.log(error);
-            setComics([]);
-        });
-    };
+        const fetchComics = async () => {
+        try {
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+            console.log(data.data.results);
+            setComics(data.data.results);
+        } catch (error) {
+            console.log('Error fetching:', error);
+        }
+        };
 
-    return (
-        <div className='bg-dark text-white'>
-            <div className='container'>
-                <h1 className='text-center pt-4'>Lista de Comics</h1>
-                <div className='row row-cols-1 row-cols-md-3 g-4'>
-                    {comics.map((comic, index) => (
-                        <div key={index} className='col'>
-                            <div className='card h-100'>
-                                <img
-                                    src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
-                                    className='card-img-top'
-                                    alt={comic.title}
-                                />
-                                <div className='card-body'>
-                                    <h5 className='card-title'>{comic.title}</h5>
-                                    {comic.creators && comic.creators.items && comic.creators.items.length > 0 && (
-                                        <>
-                                            <h6 className='card-subtitle mb-2 text-muted'>Creador</h6>
-                                            <p className='card-text'>{comic.creators.items[0].name}</p>
-                                        </>
-                                    )}
-                                    {comic.description && (
-                                        <>
-                                            <h6 className='card-subtitle mb-2 text-muted'>Historieta</h6>
-                                            <p className='card-text'>{comic.description}</p>
-                                        </>
-                                    )}
-                                </div>
-                            </div>
-                        </div>
-                    ))}
+        fetchComics();
+    }, []); // <-- Se cierra aquí el useEffect
+
+    const openModal = (comic) => {
+        setSelectedComic(comic);
+        };
+        
+        const closeModal = () => {
+            setSelectedComic(null);
+        };
+        
+        return (
+            <div className="container mt-4">
+            <h1 className="mb-4">Comics</h1>
+            <div className="row">
+                {comics.map((comic) => (
+                <div key={comic.id} className="col-md-3 mb-4">
+                    <div className="card">
+                    <img
+                        src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+                        className="card-img-top"
+                        alt={comic.title}
+                    />
+                    <div className="card-body">
+                        <h5 className="card-title">{comic.title}</h5>
+                        <button
+                        className="btn btn-primary"
+                        onClick={() => openModal(comic)}
+                        >
+                        Ver más
+                        </button>
+                    </div>
+                    </div>
                 </div>
+                ))}
             </div>
-        </div>
-    );
-}
+        
+            {/* Agregamos el componente Modal */}
+            {selectedComic && (
+                <div className="modal fade show" tabIndex="-1">
+                <div className="modal-dialog modal-xl">
+                    <div className="modal-content">
+                    <div className="modal-header">
+                        <h5 className="modal-title">{selectedComic.title}</h5>
+                        <button
+                        type="button"
+                        className="close"
+                        onClick={closeModal}
+                        >
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div className="modal-body">
+                        {selectedComic.description ? (
+                        <p>{selectedComic.description}</p>
+                        ) : (
+                        <p>No hay descripción para este cómic</p>
+                        )}
+                        <img
+                        src={`${selectedComic.thumbnail.path}.${selectedComic.thumbnail.extension}`}
+                        alt={selectedComic.title}
+                        className="img-fluid"
+                        />
+                    </div>
+                    </div>
+                </div>
+                </div>
+            )}
+            </div>
+        );
+    }
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
